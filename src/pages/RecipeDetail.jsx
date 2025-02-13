@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import dummyRecipes from '../pages/DummyRecipes';
 
 function RecipeDetail() {
-  const { id } = useParams(); // read the :id from the route
+  const { id } = useParams(); 
   const recipe = dummyRecipes.find((r) => r.id === Number(id));
 
   if (!recipe) {

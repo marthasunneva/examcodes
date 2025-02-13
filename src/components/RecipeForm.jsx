@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function RecipeForm({ onSubmit, initialData = {} }) {
-  const [title, setTitle] = useState(initialData.title || '')
+  const [title, setTitle] = useState(initialData.title || '');
   const [ingredients, setIngredients] = useState(
     initialData.ingredients ? initialData.ingredients.join(', ') : ''
-  )
-  const [instructions, setInstructions] = useState(initialData.instructions || '')
+  );
+  const [instructions, setInstructions] = useState(initialData.instructions || '');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newRecipe = {
       id: initialData.id || Date.now(),
       title,
-      ingredients: ingredients.split(',').map(item => item.trim()),
+      ingredients: ingredients.split(',').map((item) => item.trim()),
       instructions,
-    }
-    onSubmit(newRecipe)
+    };
+    onSubmit(newRecipe);
     // Clear form if it's a new recipe
     if (!initialData.id) {
-      setTitle('')
-      setIngredients('')
-      setInstructions('')
+      setTitle('');
+      setIngredients('');
+      setInstructions('');
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
@@ -48,9 +48,11 @@ function RecipeForm({ onSubmit, initialData = {} }) {
         required
         style={styles.textarea}
       />
-      <button type="submit" style={styles.button}>Save Recipe</button>
+      <button type="submit" style={styles.button}>
+        Save Recipe
+      </button>
     </form>
-  )
+  );
 }
 
 const styles = {
@@ -58,26 +60,37 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
-    maxWidth: '400px',
-    marginBottom: '20px',
+    maxWidth: '500px',
+    margin: '0 auto', // center the form
+    backgroundColor: '#f9f9f9',
+    padding: '20px',
+    borderRadius: '8px',
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
   },
   input: {
-    padding: '8px',
+    padding: '10px',
     fontSize: '16px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
   },
   textarea: {
-    padding: '8px',
+    padding: '10px',
     fontSize: '16px',
-    height: '80px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    minHeight: '60px',
   },
   button: {
-    backgroundColor: '#8BC34A', // Fresh Green
+    backgroundColor: '#4CAF50',
     color: '#fff',
     border: 'none',
-    padding: '10px',
+    padding: '12px',
+    borderRadius: '4px',
     cursor: 'pointer',
     fontWeight: 'bold',
+    marginTop: '10px',
+    transition: 'background-color 0.3s',
   },
-}
+};
 
-export default RecipeForm
+export default RecipeForm;
