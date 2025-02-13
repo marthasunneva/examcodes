@@ -5,16 +5,13 @@ function FavoritesInfo() {
     <div style={styles.container}>
       <h2 style={styles.heading}>Welcome to Your Personal Favorites!</h2>
       <p style={styles.paragraph}>
-        This page is your very own recipe collection—your personal cookbook!
-        Here you can save, edit, and manage recipes that you love or want to try later.
-        
-        <p style={styles.paragraph}>
-        Whether you’re discovering a new quick dinner idea or preserving a treasured family recipe,
-        everything you add is stored right here in your browser, so it’s always at your fingertips.
-        </p>
-        <p style={styles.paragraph}>
+        This page is your very own recipe collection—your personal cookbook! Here you can save, edit, and manage recipes that you love or want to try later.
+      </p>
+      <p style={styles.paragraph}>
+        Whether you’re discovering a new quick dinner idea or preserving a treasured family recipe, everything you add is stored right here in your browser, so it’s always at your fingertips.
+      </p>
+      <p style={styles.paragraph}>
         Enjoy customizing your culinary journey and building a collection that's uniquely yours!
-        </p>
       </p>
     </div>
   );
@@ -32,7 +29,7 @@ const styles = {
     textAlign: 'center',
   },
   heading: {
-    fontFamily: '"TheSeasons", serif', 
+    fontFamily: '"TheSeasons", serif',
     color: '#4CAF50',
     fontSize: '2rem',
     marginBottom: '15px',
