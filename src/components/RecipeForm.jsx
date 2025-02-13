@@ -1,3 +1,4 @@
+// src/components/RecipeForm.jsx
 import React, { useState } from 'react';
 
 function RecipeForm({ onSubmit, initialData = {} }) {
@@ -12,12 +13,11 @@ function RecipeForm({ onSubmit, initialData = {} }) {
     const newRecipe = {
       id: initialData.id || Date.now(),
       title,
-      ingredients: ingredients.split(',').map((item) => item.trim()),
+      ingredients: ingredients.split(',').map(item => item.trim()),
       instructions,
     };
     onSubmit(newRecipe);
-    // Clear form if it's a new recipe
-    if (!initialData.id) {
+    if (!initialData.id) { // Clear form only if adding new recipe
       setTitle('');
       setIngredients('');
       setInstructions('');
@@ -25,43 +25,43 @@ function RecipeForm({ onSubmit, initialData = {} }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={styles.form}>
+    <form onSubmit={handleSubmit} style={formStyles.form}>
       <input
         type="text"
         placeholder="Recipe Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
-        style={styles.input}
+        style={formStyles.input}
       />
       <textarea
         placeholder="Ingredients (separated by commas)"
         value={ingredients}
         onChange={(e) => setIngredients(e.target.value)}
         required
-        style={styles.textarea}
+        style={formStyles.textarea}
       />
       <textarea
         placeholder="Instructions"
         value={instructions}
         onChange={(e) => setInstructions(e.target.value)}
         required
-        style={styles.textarea}
+        style={formStyles.textarea}
       />
-      <button type="submit" style={styles.button}>
-        Save Recipe
+      <button type="submit" style={formStyles.button}>
+        {initialData.id ? 'Update Recipe' : 'Save Recipe'}
       </button>
     </form>
   );
 }
 
-const styles = {
+const formStyles = {
   form: {
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
     maxWidth: '500px',
-    margin: '0 auto', // center the form
+    margin: '0 auto',
     backgroundColor: '#f9f9f9',
     padding: '20px',
     borderRadius: '8px',

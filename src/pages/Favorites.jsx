@@ -3,6 +3,7 @@ import RecipeForm from '../components/RecipeForm';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
+  const [editingRecipe, setEditingRecipe] = useState(null);
 
   // Load favorites from localStorage on mount
   useEffect(() => {
@@ -17,19 +18,45 @@ function Favorites() {
     localStorage.setItem('favoriteRecipes', JSON.stringify(favorites));
   }, [favorites]);
 
-  const addFavorite = (recipe) => {
-    setFavorites([...favorites, recipe]);
+  const addOrUpdateFavorite = (recipe) => {
+    if (editingRecipe) {
+      // Update existing recipe: map over favorites and replace the matching one
+      const updatedFavorites = favorites.map((fav) =>
+        fav.id === editingRecipe.id ? { ...fav, ...recipe } : fav
+      );
+      setFavorites(updatedFavorites);
+      setEditingRecipe(null);
+    } else {
+      // Add new recipe
+      setFavorites([...favorites, recipe]);
+    }
   };
 
   const deleteFavorite = (id) => {
     setFavorites(favorites.filter((recipe) => recipe.id !== id));
   };
 
+  const editFavorite = (recipe) => {
+    setEditingRecipe(recipe);
+  };
+
+  const cancelEdit = () => {
+    setEditingRecipe(null);
+  };
+
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>My Personal Favorite Recipes</h2>
       <div style={styles.formContainer}>
-        <RecipeForm onSubmit={addFavorite} />
+        <h3 style={styles.formHeading}>
+          {editingRecipe ? 'Edit Favorite Recipe' : 'Add New Favorite Recipe'}
+        </h3>
+        <RecipeForm onSubmit={addOrUpdateFavorite} initialData={editingRecipe || {}} />
+        {editingRecipe && (
+          <button style={styles.cancelButton} onClick={cancelEdit}>
+            Cancel Edit
+          </button>
+        )}
       </div>
 
       {favorites.length === 0 ? (
@@ -45,12 +72,14 @@ function Favorites() {
               <p style={styles.recipeText}>
                 <strong>Instructions:</strong> {recipe.instructions}
               </p>
-              <button
-                style={styles.deleteButton}
-                onClick={() => deleteFavorite(recipe.id)}
-              >
-                Delete
-              </button>
+              <div style={styles.buttonContainer}>
+                <button style={styles.editButton} onClick={() => editFavorite(recipe)}>
+                  Edit
+                </button>
+                <button style={styles.deleteButton} onClick={() => deleteFavorite(recipe.id)}>
+                  Delete
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -61,18 +90,39 @@ function Favorites() {
 
 const styles = {
   container: {
-    maxWidth: '800px !important',
-    margin: '0 auto',
     padding: '20px',
+    maxWidth: '800px',
+    margin: '0 auto',
   },
   heading: {
     fontSize: '2rem',
     marginBottom: '20px',
-    color: '#4CAF50', // green accent color
+    color: '#4CAF50', 
     textAlign: 'center',
   },
   formContainer: {
     marginBottom: '30px',
+    backgroundColor: '#f9f9f9',
+    padding: '20px',
+    borderRadius: '8px',
+    boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+  },
+  formHeading: {
+    marginBottom: '15px',
+    textAlign: 'center',
+    color: '#333',
+  },
+  cancelButton: {
+    backgroundColor: '#999',
+    color: '#fff',
+    border: 'none',
+    padding: '8px 12px',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    marginTop: '10px',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   message: {
     fontStyle: 'italic',
@@ -102,14 +152,26 @@ const styles = {
     lineHeight: '1.5',
     color: '#555',
   },
-  deleteButton: {
-    backgroundColor: '#d9534f', // red for delete
+  buttonContainer: {
+    marginTop: '10px',
+    display: 'flex',
+    gap: '10px',
+  },
+  editButton: {
+    backgroundColor: '#007bff',
     color: '#fff',
     border: 'none',
     padding: '8px 12px',
     borderRadius: '4px',
     cursor: 'pointer',
-    marginTop: '10px',
+  },
+  deleteButton: {
+    backgroundColor: '#d9534f',
+    color: '#fff',
+    border: 'none',
+    padding: '8px 12px',
+    borderRadius: '4px',
+    cursor: 'pointer',
   },
 };
 
