@@ -61,7 +61,7 @@ function Favorites() {
 
 const styles = {
   container: {
-    maxWidth: '800px',
+    maxWidth: '800px !important',
     margin: '0 auto',
     padding: '20px',
   },
@@ -111,11 +111,6 @@ const styles = {
     cursor: 'pointer',
     marginTop: '10px',
   },
-  container: {
-    border: '2px solid red',  // For testing
-    padding: '20px',
-  },
-  
 };
 
 export default Favorites;
