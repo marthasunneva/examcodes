@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RecipeForm from '../components/RecipeForm';
+import FavoritesInfo from '../components/FavoritesInfo';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
@@ -46,6 +47,7 @@ function Favorites() {
 
   return (
     <div style={styles.container}>
+      <FavoritesInfo />
       <h2 style={styles.heading}>My Personal Favorite Recipes</h2>
       <div style={styles.formContainer}>
         <h3 style={styles.formHeading}>
