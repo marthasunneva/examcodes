@@ -1,5 +1,6 @@
+// src/components/Header.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
@@ -25,14 +26,63 @@ function Header() {
         &#9776;
       </button>
       <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-        <Link to="/" className="link" onClick={closeMenu}>Home</Link>
-        <Link to="/recipes" className="link" onClick={closeMenu}>DishDelights Recipes</Link>
-        <Link to="/favorites" className="link" onClick={closeMenu}>Personal Favorites</Link>
-        <Link to="/about" className="link" onClick={closeMenu}>About</Link>
-        <Link to="/contact" className="link" onClick={closeMenu}>Contact</Link>
+        <NavLink
+          to="/"
+          className="link"
+          onClick={closeMenu}
+          style={({ isActive }) =>
+            isActive ? { ...activeStyle } : undefined
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/recipes"
+          className="link"
+          onClick={closeMenu}
+          style={({ isActive }) =>
+            isActive ? { ...activeStyle } : undefined
+          }
+        >
+          DishDelights Recipes
+        </NavLink>
+        <NavLink
+          to="/favorites"
+          className="link"
+          onClick={closeMenu}
+          style={({ isActive }) =>
+            isActive ? { ...activeStyle } : undefined
+          }
+        >
+          Personal Favorites
+        </NavLink>
+        <NavLink
+          to="/about"
+          className="link"
+          onClick={closeMenu}
+          style={({ isActive }) =>
+            isActive ? { ...activeStyle } : undefined
+          }
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className="link"
+          onClick={closeMenu}
+          style={({ isActive }) =>
+            isActive ? { ...activeStyle } : undefined
+          }
+        >
+          Contact
+        </NavLink>
       </nav>
     </header>
   );
 }
+
+const activeStyle = {
+  color: '#FF6F00', // Hover/active color
+};
 
 export default Header;

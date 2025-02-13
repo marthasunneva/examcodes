@@ -20,23 +20,8 @@ function About() {
       
       <p style={styles.paragraph}>
         DishDelights is dedicated to providing simple, affordable, and delicious recipes. Our goal 
-        is to inspire students and anyone with limited resources to cook creative meals without 
-        breaking the bank. Whether you’re exploring new flavors or perfecting a beloved classic, 
+        is to inspire people who want to elevate their home cooking to try new and fun recipes. Whether you’re exploring new flavors or perfecting a beloved classic, 
         we’re here to make your cooking journey enjoyable and accessible.
-      </p>
-
-      {/* Icons / Dividers / Section Break */}
-      <hr style={styles.divider} />
-
-      <p style={styles.paragraph}>
-        <strong>Explore Our Recipes:</strong> Dive into a growing collection of dishes that suit 
-        every taste and dietary preference. From budget-friendly pasta ideas to quick stir-fries, 
-        we’ve got you covered!
-      </p>
-      <p style={styles.paragraph}>
-        <strong>Join Our Community:</strong> Whether you’re a student in a tiny dorm kitchen or 
-        simply cooking on a tight budget, DishDelights is all about sharing knowledge and 
-        supporting each other’s culinary adventures. 
       </p>
 
       {/* User/Community Story or Testimonial */}
@@ -55,12 +40,26 @@ function About() {
       “I love that every recipe has simple instructions and uses budget-friendly ingredients. DishDelights really helped me gain confidence in the kitchen!”      </blockquote>
       <p style={styles.testimonialAuthor}>— Mia, Busy Professional</p>
 
+        {/* Icons / Dividers / Section Break */}
+      <hr style={styles.divider} />
+
+      <p style={styles.paragraph}>
+        <strong>Explore Our Recipes:</strong> Dive into a growing collection of dishes that suit 
+        every taste and dietary preference. From budget-friendly pasta ideas to quick stir-fries, 
+        we’ve got you covered!
+      </p>
+      <p style={styles.paragraph}>
+        <strong>Join Our Community:</strong> Whether you’re a student in a tiny dorm kitchen or 
+        simply cooking on a tight budget, DishDelights is all about sharing knowledge and 
+        supporting each other’s culinary adventures. 
+      </p>
+
       {/* Call-to-Action (CTA) */}
       <Link to="/recipes" style={styles.ctaButton}>
         Explore Our Recipes
       </Link>
       <Link to="/contact" style={{ ...styles.ctaButton, ...styles.secondaryButton }}>
-        Join Our Community
+        Get In Touch
       </Link>
     </div>
   );
