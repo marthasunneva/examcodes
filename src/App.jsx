@@ -34,7 +34,7 @@ const styles = {
   main: {
     minHeight: '80vh',
     padding: '20px',
-    backgroundColor: '#FFFFFF', // Clean White
+    backgroundColor: '#FFFFFF',
   },
 }
 

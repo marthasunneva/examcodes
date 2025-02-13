@@ -1,7 +1,5 @@
-// src/pages/About.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-// Example placeholder image (you can replace with your own asset)
 import behindScenesImg from '../assets/recipes/about1.jpg';
 
 function About() {
@@ -9,11 +7,11 @@ function About() {
     <div style={styles.container}>
       <h1 style={styles.title}>About DishDelights</h1>
       
-      {/* Visual Element / Illustration */}
+      {/* Visual Element */}
       <div style={styles.imageContainer}>
         <img
           src={behindScenesImg}
-          alt="Behind the Scenes of DishDelights"
+          alt="About section image"
           style={styles.image}
         />
       </div>
@@ -26,10 +24,9 @@ function About() {
 
       {/* User/Community Story or Testimonial */}
       <blockquote style={styles.testimonial}>
-        “DishDelights helped me cook delicious meals on a tight budget! I’ve saved so much money 
-        while discovering new, fun recipes every week.”
+        “DishDelights helped me cook delicious meals while still allowing me to keep it simple! It's helped me discover new, fun recipes every week.”
       </blockquote>
-      <p style={styles.testimonialAuthor}>— Alex, Happy Student Cook</p>
+      <p style={styles.testimonialAuthor}>— Alex, Happy Amateur Cook</p>
 
       <blockquote style={styles.testimonial}>
       “DishDelights makes it so easy to find new meal ideas! My roommates and I have saved a ton on groceries while still eating delicious, homemade food.”
@@ -50,7 +47,7 @@ function About() {
       </p>
       <p style={styles.paragraph}>
         <strong>Join Our Community:</strong> Whether you’re a student in a tiny dorm kitchen or 
-        simply cooking on a tight budget, DishDelights is all about sharing knowledge and 
+        a food lover who loves to try new dishes, DishDelights is all about sharing knowledge and 
         supporting each other’s culinary adventures. 
       </p>
 
@@ -74,7 +71,7 @@ const styles = {
     padding: '20px',
   },
   title: {
-    fontFamily: '"TheSeasons", serif', // Or match your brand font
+    fontFamily: '"TheSeasons", serif',
     fontSize: '2.5rem',
     color: '#4CAF50',
     marginBottom: '20px',

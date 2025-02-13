@@ -26,7 +26,7 @@ const styles = {
   },
   image: {
     width: '100%',
-    height: '150px', //set a fixed height
+    height: '150px', 
     objectFit: 'cover',
     borderRadius: '8px',
   },
@@ -34,7 +34,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '20px',
-    alignItems: 'flex-start', // Align all items at the top
+    alignItems: 'flex-start',
   },  
   link: {
     marginTop: '10px',

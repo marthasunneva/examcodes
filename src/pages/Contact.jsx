@@ -1,4 +1,3 @@
-// src/pages/Contact.jsx
 import React, { useState } from 'react';
 
 function Contact() {
@@ -12,7 +11,6 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can replace this console log with a real API call if needed.
     console.log('Form submitted:', formData);
     setSubmitted(true);
   };

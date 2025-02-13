@@ -1,4 +1,3 @@
-// src/components/RecipeForm.jsx
 import React, { useState } from 'react';
 
 function RecipeForm({ onSubmit, initialData = {} }) {

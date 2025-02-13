@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React from 'react';
 import backgroundImg from '../assets/recipes/background.jpg';
 import CTAButton from '../components/CTAButton';

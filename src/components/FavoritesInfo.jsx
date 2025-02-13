@@ -1,4 +1,3 @@
-// src/components/FavoritesInfo.jsx
 import React from 'react';
 
 function FavoritesInfo() {
@@ -22,7 +21,7 @@ function FavoritesInfo() {
 
 const styles = {
   heading: {
-    fontFamily: '"TheSeasons", serif', // or match your brand font
+    fontFamily: '"TheSeasons", serif',
     color: '#4CAF50',
     fontSize: '2rem',
     marginBottom: '15px',

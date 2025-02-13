@@ -1,7 +1,6 @@
-/* Home.css */
 .home-container {
     position: relative;
-    min-height: 100vh;         /* Full viewport height */
+    min-height: 100vh;    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,14 +18,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* Use your background image */
-    background-image: url('../assets/recipes/background.jpg'); /* adjust path as needed */
+    background-image: url('../assets/recipes/background.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Flip the image horizontally */
-    transform: scaleX(-1);
-    /* Optional: add an overlay for readability */
+    /* overlay for readability */
     background-color: rgba(0, 0, 0, 0.3);
     mix-blend-mode: multiply;
     z-index: -1;
