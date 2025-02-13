@@ -111,6 +111,11 @@ const styles = {
     cursor: 'pointer',
     marginTop: '10px',
   },
+  container: {
+    border: '2px solid red',  // For testing
+    padding: '20px',
+  },
+  
 };
 
 export default Favorites;
