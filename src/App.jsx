@@ -6,7 +6,6 @@ import Footer from './components/Footer'
 
 import Home from './pages/Home'
 import Recipes from './pages/Recipes'
-//import DummyRecipes from './pages/DummyRecipes'
 import Favorites from './pages/Favorites'
 import About from './pages/About'
 import Contact from './pages/Contact'

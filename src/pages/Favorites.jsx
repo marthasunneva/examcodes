@@ -1,69 +1,85 @@
-import React, { useState, useEffect } from 'react'
-import RecipeForm from '../components/RecipeForm'
+// src/pages/Favorites.jsx
+import React, { useState, useEffect } from 'react';
+import RecipeForm from '../components/RecipeForm';
 
 function Favorites() {
-  const [favorites, setFavorites] = useState([])
+  const [favorites, setFavorites] = useState([]);
 
-  // Load from localStorage on mount
+  // Load favorites from localStorage when the component mounts
   useEffect(() => {
-    const stored = localStorage.getItem('favoriteRecipes')
-    if (stored) {
-      setFavorites(JSON.parse(stored))
+    const storedFavorites = localStorage.getItem('favoriteRecipes');
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
     }
-  }, [])
+  }, []);
 
-  // Save to localStorage whenever favorites change
+  // Save favorites to localStorage whenever the favorites state changes
   useEffect(() => {
-    localStorage.setItem('favoriteRecipes', JSON.stringify(favorites))
-  }, [favorites])
+    localStorage.setItem('favoriteRecipes', JSON.stringify(favorites));
+  }, [favorites]);
 
-  const addRecipe = (recipe) => {
-    setFavorites([...favorites, recipe])
-  }
+  const addFavorite = (recipe) => {
+    setFavorites([...favorites, recipe]);
+  };
 
-  const deleteRecipe = (id) => {
-    setFavorites(favorites.filter(recipe => recipe.id !== id))
-  }
+  const deleteFavorite = (id) => {
+    setFavorites(favorites.filter((recipe) => recipe.id !== id));
+  };
 
   return (
     <div style={styles.container}>
       <h2>My Personal Favorite Recipes</h2>
-      <RecipeForm onSubmit={addRecipe} />
-      <div>
-        {favorites.map(recipe => (
-          <div key={recipe.id} style={styles.favoriteItem}>
-            <h3>{recipe.title}</h3>
-            <p><strong>Ingredients:</strong> {recipe.ingredients.join(', ')}</p>
-            <p><strong>Instructions:</strong> {recipe.instructions}</p>
-            <button onClick={() => deleteRecipe(recipe.id)} style={styles.deleteButton}>
-              Delete
-            </button>
-          </div>
-        ))}
-      </div>
+      {/* Form to add a new favorite recipe */}
+      <RecipeForm onSubmit={addFavorite} />
+      {/* Show a friendly message if there are no favorites */}
+      {favorites.length === 0 ? (
+        <p style={styles.message}>No favorites added yet. Start adding some recipes!</p>
+      ) : (
+        <div style={styles.list}>
+          {favorites.map((recipe) => (
+            <div key={recipe.id} style={styles.recipeItem}>
+              <h3>{recipe.title}</h3>
+              <p><strong>Ingredients:</strong> {recipe.ingredients.join(', ')}</p>
+              <button style={styles.deleteButton} onClick={() => deleteFavorite(recipe.id)}>
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
 const styles = {
   container: {
     padding: '20px',
   },
-  favoriteItem: {
+  message: {
+    fontStyle: 'italic',
+    color: '#666',
+  },
+  list: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+    marginTop: '20px',
+  },
+  recipeItem: {
     border: '1px solid #ccc',
     borderRadius: '8px',
-    padding: '10px',
-    marginBottom: '10px',
+    padding: '15px',
     backgroundColor: '#f9f9f9',
   },
   deleteButton: {
-    backgroundColor: '#1565C0', // Deep Blue
+    backgroundColor: '#d9534f',
     color: '#fff',
     border: 'none',
     padding: '8px 12px',
-    cursor: 'pointer',
     borderRadius: '4px',
+    cursor: 'pointer',
+    marginTop: '10px',
   },
-}
+};
 
-export default Favorites
+export default Favorites;
