@@ -48,7 +48,7 @@ function Favorites() {
   return (
     <div style={styles.container}>
       <FavoritesInfo />
-      <h2 style={styles.heading}>My Personal Favorite Recipes</h2>
+      <h2 style={styles.heading}>Get started here</h2>
       <div style={styles.formContainer}>
         <h3 style={styles.formHeading}>
           {editingRecipe ? 'Edit Favorite Recipe' : 'Add New Favorite Recipe'}
