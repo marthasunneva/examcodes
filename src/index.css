@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: 'TheSeasons';
+  src: url('/src/asstes/fonts/TheSeasons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
